@@ -6,18 +6,14 @@ import { faBuysellads, faYammer } from "@fortawesome/free-brands-svg-icons";
 import { faCar, faCartPlus, faLongArrowRight, faMoneyBill1Wave, faPerson, faRoad } from "@fortawesome/free-solid-svg-icons";
 import { faCcAmazonPay } from "@fortawesome/free-brands-svg-icons/faCcAmazonPay";
 import { useState } from "react";
-
-const editButtonStyle = "px-3 py-1 rounded-md bg-gray-100"
-const list = [
-  "https://img.freepik.com/photos-gratuite/rendu-3d-puzzle-chien_23-2150780910.jpg?t=st=1715022600~exp=1715026200~hmac=0c42249ffa490aa2bfde72c38d0d8abef50bd31081cccd4b9d0b3043d6bbc334&w=1060",
-  "https://img.freepik.com/photos-gratuite/rendu-3d-chien-robotique_23-2150780878.jpg?t=st=1715022679~exp=1715026279~hmac=a26e99da29bb050df6ece6471d5668841bf1d28773b481d5227aa84e168a6fac&w=1800",
-  "https://img.freepik.com/photos-gratuite/avion-jouet-helice-bleu-pour-enfant-tournant-interieur-genere-par-ia_188544-10224.jpg?t=st=1715022450~exp=1715026050~hmac=d1e82761dfe61e222d0934c32b54ae0921d28c271e896df72082b7140ae60488&w=1380",
-  "https://img.freepik.com/photos-gratuite/vue-modele-train-forme-jouet-3d_23-2150905433.jpg?t=st=1715022763~exp=1715026363~hmac=3b782976da53e09b6ccfabcfce19b4bedb5ee7e06c81d202f772a201e999b34e&w=1800"
-]
+import { listJouetsImages } from "./data/ListJouetsImages";
 
 export default function Home() {
-  const [imgSelected, setImgSelected] = useState(list[0])
+  const [imgSelected, setImgSelected] = useState(listJouetsImages[0])
+
+  // Style class
   const containerStyle = "w-1/4 h-20 lg:h-28 bg-gray-100 rounded-lg overflow-hidden"
+  const editButtonStyle = "px-3 py-1 rounded-md bg-gray-100"
 
   return (
     <main className="">
@@ -38,7 +34,7 @@ export default function Home() {
               </div>
               <div className="mt-2 flex space-x-2">
                 {
-                  list.map(item => (
+                  listJouetsImages.map(item => (
                     <button
                       onClick={() => setImgSelected(item)}
                       className={imgSelected == item ? containerStyle + " border-2 p-1 border-black" : containerStyle} key={item}>
